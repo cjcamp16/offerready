@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cole Campbell — Portfolio</title>
+<meta name="description" content="Data Scientist / ML Engineer — portfolio of Cole Campbell.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="hero">
+  <div class="blob b1"></div><div class="blob b2"></div>
+  <div class="wrap hero-inner">
+    <div class="hero-copy">
+      <p class="eyebrow">Data Scientist / ML Engineer</p>
+      <h1>Cole Campbell</h1>
+      <p class="lede">I'm a new-grad data scientist and ML engineer with a deep applied portfolio in generative AI, deep learning, and statistical modeling. I build end-to-end systems — from data pipelines through model integration in production backends. I'm pursuing an M.S. in Data Science atop a 2026 B.S.</p>
+      <div class="links"><a class="btn-resume" href="resume.pdf" target="_blank" rel="noopener">Résumé ↓</a><a href="https://github.com/cjcamp16" target="_blank" rel="noopener">GitHub</a><a href="https://www.linkedin.com/in/cole-campbell23" target="_blank" rel="noopener">LinkedIn</a></div>
+    </div>
+    <div class="hero-photo"><img src="headshot.png" alt="Headshot of Cole Campbell"></div>
+  </div>
+</header>
+
+<main class="wrap">
+  <section id="education">
+    <h2>Education</h2>
+    <div class="edu"><h4><b>Arizona State University</b></h4><p class="edu-line">B.S. in Data Science (Concentration in Computer Science), 2026</p><p class="edu-line">GPA: 3.52</p></div><div class="edu"><h4><b>Arizona State University</b></h4><p class="edu-line">M.S. in Data Science, Analytics, and Engineering (Computational Mathematics & Data), 2027</p></div>
+  </section>
+
+  <section id="skills">
+    <h2>Skills</h2>
+    <div class="skills"><div class="skill-row"><span class="skill-label">Languages</span><div class="chips"><span class="chip ghost">Python</span><span class="chip ghost">R</span><span class="chip ghost">Dart</span><span class="chip ghost">C/C++</span><span class="chip ghost">JavaScript</span><span class="chip ghost">SQL</span><span class="chip ghost">Bash</span><span class="chip ghost">MATLAB</span></div></div><div class="skill-row"><span class="skill-label">ML / AI</span><div class="chips"><span class="chip ghost">Deep learning</span><span class="chip ghost">generative models</span><span class="chip ghost">LLMs & prompt engineering</span><span class="chip ghost">LoRA/QLoRA/PEFT</span><span class="chip ghost">transfer learning</span><span class="chip ghost">neural style transfer</span><span class="chip ghost">audio/music generation</span><span class="chip ghost">model evaluation</span></div></div><div class="skill-row"><span class="skill-label">Frameworks</span><div class="chips"><span class="chip ghost">PyTorch</span><span class="chip ghost">TensorFlow</span><span class="chip ghost">Hugging Face</span><span class="chip ghost">scikit-learn</span><span class="chip ghost">NumPy</span><span class="chip ghost">Pandas</span><span class="chip ghost">SciPy</span><span class="chip ghost">StatsModels</span><span class="chip ghost">FastAPI</span><span class="chip ghost">Flutter/Riverpod</span></div></div><div class="skill-row"><span class="skill-label">Data Science</span><div class="chips"><span class="chip ghost">Regression & statistical modeling</span><span class="chip ghost">classification</span><span class="chip ghost">time series</span><span class="chip ghost">Bayesian</span><span class="chip ghost">clustering</span><span class="chip ghost">longitudinal/panel analysis</span><span class="chip ghost">feature engineering</span><span class="chip ghost">A/B testing</span><span class="chip ghost">causal inference</span><span class="chip ghost">hypothesis testing</span><span class="chip ghost">visualization</span></div></div><div class="skill-row"><span class="skill-label">Data Engineering</span><div class="chips"><span class="chip ghost">ETL & data pipelines</span><span class="chip ghost">REST API integration</span><span class="chip ghost">SQLAlchemy + Alembic</span><span class="chip ghost">PostgreSQL</span><span class="chip ghost">Firebase</span><span class="chip ghost">Docker</span><span class="chip ghost">CUDA</span><span class="chip ghost">cloud</span></div></div><div class="skill-row"><span class="skill-label">Tools</span><div class="chips"><span class="chip ghost">Git</span><span class="chip ghost">Linux</span><span class="chip ghost">Jupyter</span><span class="chip ghost">VS Code</span><span class="chip ghost">OpenCV</span><span class="chip ghost">librosa</span><span class="chip ghost">ParaView/VTK</span><span class="chip ghost">pytest</span><span class="chip ghost">Weights & Biases</span><span class="chip ghost">Kaggle/NBA APIs</span><span class="chip ghost">REST/OpenAPI</span></div></div><div class="skill-row"><span class="skill-label">Math</span><div class="chips"><span class="chip ghost">Linear algebra</span><span class="chip ghost">probability</span><span class="chip ghost">optimization</span><span class="chip ghost">numerical methods</span><span class="chip ghost">stochastic processes</span><span class="chip ghost">statistical theory</span></div></div></div>
+  </section>
+
+  <section id="projects">
+    <h2>Projects</h2>
+    <div class="cards">
+        <article class="card">
+          <h3>Multi-Architecture Generative Content Studio — Deep Learning Capstone</h3>
+          <div class="chips"><span class="chip">PyTorch</span><span class="chip">Transformers</span><span class="chip">Diffusion</span><span class="chip">GANs</span><span class="chip">CNNs</span><span class="chip">RNNs</span></div>
+          <p class="card-blurb">A unified generative system that produces story text, scene illustrations, character portraits, and background music from a single prompt.</p>
+          <ul class="card-points"><li>Built a unified generative system producing story text, scene illustrations, character portraits, and background music from a single prompt.</li><li>Integrated GPT-2, Stable Diffusion, StyleGAN2/3, VGG16/19, and LSTM into one cohesive pipeline.</li><li>Fine-tuned GPT-2 for narrative generation, entity extraction, and structured scene descriptions; implemented Stable Diffusion with LoRA + ControlNet for composition-controlled scenes.</li></ul>
+          
+        </article>
+        <article class="card">
+          <h3>Tempo — AI Scheduling Assistant</h3>
+          <div class="chips"><span class="chip">FastAPI</span><span class="chip">Flutter</span><span class="chip">PostgreSQL</span><span class="chip">LLM / NLP</span><span class="chip">Constraint Optimization</span></div>
+          <p class="card-blurb">A cross-platform AI scheduling app that generates, compares, and applies alternative day/week plans.</p>
+          <ul class="card-points"><li>Built a cross-platform scheduling app (Flutter front end, FastAPI back end) that generates alternative day/week plans, compares them, and applies the one the user picks.</li><li>Designed a constraint-based scheduling engine that orders tasks, builds the daily timeline, resolves conflicts, and merges blocks into a coherent schedule.</li><li>Engineered a scenario pipeline supporting generation, diff-based comparison, trade-off analysis, and undo/redo state management.</li></ul>
+          
+        </article>
+        <article class="card">
+          <h3>PSID Panel Dataset Analysis — Longitudinal Economics Project</h3>
+          <div class="chips"><span class="chip">Python</span><span class="chip">Statistical Modeling</span><span class="chip">Longitudinal Analysis</span></div>
+          <p class="card-blurb">A longitudinal analysis of a 17,000-observation PSID panel studying income and wealth dynamics.</p>
+          <ul class="card-points"><li>Analyzed a 17,000-observation PSID panel (1999–2023) to study income and wealth dynamics.</li><li>Built the full pipeline: cleaning, transformation, feature engineering, regression modeling, and visualization.</li><li>Found wealth roughly twice as unequal as income (wealth Gini ~0.85 vs income Gini ~0.45), with the median wealth-to-income ratio rising from 1.25 to 2.05 across the panel.</li></ul>
+          <a class="card-link" href="https://github.com/cjcamp16/psid-income-wealth-analysis" target="_blank" rel="noopener">View project ↗</a>
+        </article>
+        <article class="card">
+          <h3>Scientific Visualization Pipeline (ParaView) — Self-Directed</h3>
+          <div class="chips"><span class="chip">ParaView</span><span class="chip">paraview.simple</span><span class="chip">VTK</span><span class="chip">NumPy</span></div>
+          <p class="card-blurb">A fully Python-scripted ParaView pipeline for 3D scientific data visualization.</p>
+          <ul class="card-points"><li>Built a NumPy/VTK dataset (3D Gaussian concentration field + analytic ABC-flow velocity) and a fully Python-scripted ParaView pipeline (paraview.simple).</li><li>Generated volume renderings, Contour isosurfaces, slices, and Stream Tracer streamline tubes, with automated figure and orbit-animation export.</li></ul>
+          <a class="card-link" href="https://github.com/cjcamp16/sciviz-paraview" target="_blank" rel="noopener">View project ↗</a>
+        </article></div>
+  </section>
+
+  <section id="experience">
+    <h2>Experience</h2>
+    <div class="exp"><h4>Handshake</h4><p class="exp-sub">AI Trainer &mdash; <i>May 2026 – Present</i></p><ul><li>Trained AI models based on their ability to reason and evaluate tasks across mathematics, codebases, and visualizations.</li></ul></div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="wrap foot-inner">
+    <span class="foot-name">Cole Campbell</span>
+    <span class="foot-links"><a href="mailto:colejcampbell1738@gmail.com">colejcampbell1738@gmail.com</a> <a href="resume.pdf" target="_blank" rel="noopener">Résumé</a> <a href="https://github.com/cjcamp16" target="_blank" rel="noopener">GitHub</a><a href="https://www.linkedin.com/in/cole-campbell23" target="_blank" rel="noopener">LinkedIn</a></span>
+    <span class="foot-note">&copy; <span id="yr"></span> Cole Campbell</span>
+  </div>
+</footer>
+<script>document.getElementById('yr').textContent=new Date().getFullYear();</script>
+</body>
+</html>
