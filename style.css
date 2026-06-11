@@ -13,8 +13,9 @@ a{color:var(--teal);text-decoration:none}
 .container{max-width:var(--maxw);margin:0 auto;padding:0 24px}
 .narrow{max-width:760px}
 .center{text-align:center}
-.brand{font-weight:800;font-size:1.15rem;color:var(--text);letter-spacing:-.3px}
-.brand span{color:var(--teal)}
+.brand{display:flex;align-items:center}
+.brand img{height:34px;display:block}
+.footer .brand img{height:26px;opacity:.9}
 
 /* NAV */
 .nav{position:sticky;top:0;z-index:50;background:rgba(11,22,34,.72);backdrop-filter:blur(10px);border-bottom:1px solid transparent;transition:.25s}
