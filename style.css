@@ -156,3 +156,12 @@ a{color:var(--green);text-decoration:none}
   .group{flex-direction:column;align-items:flex-start}
   .aurora{animation:none;filter:blur(60px);opacity:.4}  /* animated 90px blurs jank phones */
 }
+
+/* LEGAL pages */
+.legal h1{font-size:2rem;letter-spacing:-.6px;margin-bottom:8px}
+.legal-sub{color:var(--muted);font-size:.92rem;margin-bottom:30px}
+.legal h2{font-size:1.15rem;margin:30px 0 10px;color:var(--text)}
+.legal p,.legal li{color:var(--muted);font-size:.96rem;margin-bottom:10px}
+.legal ul{padding-left:22px;margin-bottom:14px}
+.legal code{font-family:var(--mono);background:var(--green-soft);color:var(--green);padding:1px 6px;border-radius:5px;font-size:.85em}
+.legal strong{color:var(--text)}

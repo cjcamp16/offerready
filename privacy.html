@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Privacy Policy — OfferReady</title>
+  <meta name="robots" content="noindex" />
+  <link rel="icon" type="image/png" href="assets/favicon.png" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="nav" id="nav">
+    <div class="container nav-inner">
+      <a href="index.html" class="brand"><img src="assets/logo_dark.png" alt="OfferReady" /></a>
+      <nav class="nav-links"><a href="index.html">← Back to OfferReady</a></nav>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="container narrow legal">
+      <h1>Privacy Policy</h1>
+      <p class="legal-sub">Plain English, no dark patterns. Last updated June 11, 2026. Questions or requests: <a href="mailto:cole-c@offerreadynow.us">cole-c@offerreadynow.us</a></p>
+
+      <h2>What we collect</h2>
+      <p>Only what your order needs: your name, email, phone (optional), the photos you upload, and the career information you type into the intake form (education, experience, links, style preferences). We don't run ad trackers on this site.</p>
+
+      <h2>What it's used for</h2>
+      <p>Producing your order. Nothing else. Your photos are used to generate <em>your</em> headshots; your career info is used to write <em>your</em> résumé and LinkedIn materials. We never sell or share your data for marketing, and we never use your photos or results in our own marketing without written permission.</p>
+
+      <h2>Who processes it</h2>
+      <p>Producing your order involves a few well-known services, each receiving only what its step needs:</p>
+      <ul>
+        <li><strong>Stripe</strong> — payment (we never see your card number)</li>
+        <li><strong>Tally</strong> — the intake form and photo upload</li>
+        <li><strong>Google (Gemini API)</strong> — headshot generation from your photos</li>
+        <li><strong>Anthropic (Claude API)</strong> — structuring your résumé text</li>
+        <li><strong>Resend</strong> — sending your order emails</li>
+        <li><strong>GitHub &amp; Cloudflare</strong> — hosting portfolio websites (Full Launch Kit; your site is public by design)</li>
+      </ul>
+
+      <h2>How long we keep it</h2>
+      <ul>
+        <li><strong>Your photos and order files:</strong> kept up to 90 days after delivery (so your free revision round works), then purged. Want them gone sooner? Reply to any email from us — <strong>deleted same day, any time, no questions</strong>.</li>
+        <li><strong>Your hosted site</strong> (Full Launch Kit) stays online because that's the product — ask and we take it down.</li>
+        <li><strong>Order records</strong> (who bought what, when) are kept for accounting.</li>
+      </ul>
+
+      <h2>Your rights</h2>
+      <p>Email us to see, correct, export, or delete your data — we're one person with a tidy filing system, not a data warehouse. We'll confirm within 48 hours.</p>
+
+      <h2>Security</h2>
+      <p>Photos and order files live on encrypted, access-controlled machines and are never posted anywhere public (except the portfolio site you ordered). Payment data never touches our systems at all.</p>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container foot-inner">
+      <span class="brand"><img src="assets/logo_dark.png" alt="OfferReady" /></span>
+      <span class="foot-links">
+        <a href="mailto:cole-c@offerreadynow.us">cole-c@offerreadynow.us</a>
+        <span>·</span>
+        <a href="terms.html">Terms</a>
+      </span>
+      <span class="foot-note">© <span id="year"></span> OfferReady · Tempe, AZ</span>
+    </div>
+  </footer>
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
