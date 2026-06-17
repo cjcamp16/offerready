@@ -175,4 +175,11 @@ a{color:var(--green);text-decoration:none}
 .stars{color:var(--green);letter-spacing:2px;font-size:1rem}
 .stars-off{color:var(--border)}
 #reviews-sub .stars{font-size:1.1rem}
+/* before/after pair inside a review card */
+.ba-pair{display:flex;align-items:center;gap:8px;margin-bottom:4px}
+.ba-pair figure{flex:1;margin:0;position:relative}
+.ba-pair img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:10px;border:1px solid var(--border);display:block}
+.ba-pair figcaption{position:absolute;left:8px;bottom:8px;font-size:.62rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;background:rgba(11,22,34,.78);color:var(--text);padding:2px 7px;border-radius:99px}
+.ba-pair figure:last-child figcaption{background:var(--green);color:#06251a}
+.ba-arrow{color:var(--green);font-size:1.2rem;font-weight:800;flex:0 0 auto}
 @media (max-width:900px){.reviews-grid{grid-template-columns:1fr;max-width:480px;margin-left:auto;margin-right:auto}}
