@@ -233,7 +233,7 @@
   <script>
     document.getElementById('year').textContent = new Date().getFullYear();
     addEventListener('scroll', () => document.getElementById('nav').classList.toggle('scrolled', scrollY > 10), {passive:true});
-    fetch('reviews.json').then(r => r.ok ? r.json() : []).then(rs => {
+    fetch('reviews.json?t=' + Date.now()).then(r => r.ok ? r.json() : []).then(rs => {
       if (!Array.isArray(rs) || !rs.length) return;
       const esc = t => { const d = document.createElement('div'); d.textContent = t; return d.innerHTML; };
       const stars = n => '<span class="stars">' + '★'.repeat(n) + '<span class="stars-off">' + '★'.repeat(5 - n) + '</span></span>';
