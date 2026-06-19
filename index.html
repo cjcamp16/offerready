@@ -173,7 +173,11 @@
     <div class="container">
       <h2 class="reveal in">What students say</h2>
       <p class="section-sub reveal in" id="reviews-sub"></p>
-      <div class="reviews-grid" id="reviews-grid"></div>
+      <div class="reviews-carousel">
+        <button class="rev-arrow" id="rev-prev" aria-label="Previous reviews" hidden>‹</button>
+        <div class="reviews-track" id="reviews-grid"></div>
+        <button class="rev-arrow" id="rev-next" aria-label="Next reviews" hidden>›</button>
+      </div>
       <p class="rush-note">Every review is from a verified order — collected after delivery and published with permission.</p>
     </div>
   </section>
@@ -243,7 +247,8 @@
             '<span class="ba-arrow">→</span>' +
             '<figure><img src="' + esc(r.after) + '" alt="after" loading="lazy"><figcaption>after</figcaption></figure>' +
           '</div>' : '';
-      document.getElementById('reviews-grid').innerHTML = rs.slice(0, 10).map(r =>
+      const track = document.getElementById('reviews-grid');
+      track.innerHTML = rs.slice(0, 15).map(r =>
         '<figure class="review-card' + (r.before && r.after ? ' has-ba' : '') + '">' + ba(r) + stars(r.stars) +
         '<blockquote>“' + esc(r.quote) + '”</blockquote>' +
         '<figcaption><strong>' + esc(r.name) + '</strong> · ' + esc(r.detail) + '</figcaption></figure>'
@@ -251,6 +256,23 @@
       document.getElementById('reviews').style.display = '';
       document.getElementById('nav-reviews').style.display = '';
       document.getElementById('faq').classList.add('alt');
+
+      // carousel: page through ~3 cards at a time; arrows hide if everything fits
+      const prev = document.getElementById('rev-prev'), next = document.getElementById('rev-next');
+      const overflow = () => track.scrollWidth > track.clientWidth + 4;
+      const sync = () => {
+        const has = overflow();
+        prev.hidden = next.hidden = !has;
+        if (has) {
+          prev.classList.toggle('off', track.scrollLeft < 4);
+          next.classList.toggle('off', track.scrollLeft + track.clientWidth >= track.scrollWidth - 4);
+        }
+      };
+      prev.onclick = () => track.scrollBy({ left: -track.clientWidth, behavior: 'smooth' });
+      next.onclick = () => track.scrollBy({ left: track.clientWidth, behavior: 'smooth' });
+      track.addEventListener('scroll', sync, { passive: true });
+      addEventListener('resize', sync);
+      sync();
     }).catch(() => {});
     const io = new IntersectionObserver(es => es.forEach(e => {
       if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
