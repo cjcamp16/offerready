@@ -1,11 +1,13 @@
 [
   {
     "id": "rDVleyv",
-    "name": "Chapman",
+    "name": "Dylan C.",
     "detail": "Headshot",
     "stars": 5,
     "quote": "Made a great headshot for me!",
-    "date": "2026-06-19"
+    "date": "2026-06-19",
+    "before": "assets/reviews/rDVleyv-before.jpg?v=8ea8e8c3",
+    "after": "assets/reviews/rDVleyv-after.jpg?v=2120888d"
   },
   {
     "id": "EqLW5D2",
