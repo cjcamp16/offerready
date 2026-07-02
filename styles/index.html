@@ -3,176 +3,197 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Styles Gallery — OfferReady</title>
-<meta name="description" content="Every OfferReady customization — headshot backgrounds, résumé templates, and portfolio website designs — shown on real work before you choose.">
+<title>Pick your look — OfferReady</title>
+<meta name="description" content="Flip through every OfferReady look — backgrounds, résumé templates, and portfolio sites — shown on the founder's real kit.">
 <link rel="icon" href="../assets/favicon.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,500&family=Archivo:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
 <style>
-:root{
-  --navy:#0a1421; --navy-2:#0e1c2e; --ink:#06101b;
-  --paper:#f3f0e9; --cream:#e7e2d6;
-  --maroon:#c64b4f; --maroon-deep:#9b2d30; --teal:#6fc3bd; --gold:#c9a45c;
-  --line:rgba(189,205,222,.14); --line-2:rgba(189,205,222,.28);
-  --muted:#8aa0b6; --muted-2:#5f7891;
-  --serif:'Fraunces',Georgia,serif; --sans:'Archivo',system-ui,sans-serif; --mono:'JetBrains Mono',ui-monospace,monospace;
+/* ===== Styles page — same design system as the landing, carousel showroom ===== */
+
+.show-hero{padding:88px 0 30px}
+.show-hero .lede{margin-bottom:0}
+
+/* section head with inline controls */
+.show{padding:56px 0 8px}
+.show-head{display:flex;align-items:baseline;gap:14px;max-width:var(--maxw);margin:0 auto 6px;flex-wrap:wrap}
+.show-head h2{text-align:left;margin-bottom:0;font-size:clamp(1.5rem,3vw,2rem);letter-spacing:-.5px}
+.show-head .count{color:var(--muted);font-size:.9rem;font-variant-numeric:tabular-nums}
+.show-sub{color:var(--muted);max-width:640px;margin:0 0 26px}
+.show-sub strong{color:var(--text)}
+
+/* carousel scaffold — same interaction as the reviews board */
+.car{position:relative}
+.car-track{display:flex;gap:18px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;
+  scrollbar-width:none;-ms-overflow-style:none;padding:8px 2px 14px}
+.car-track::-webkit-scrollbar{display:none}
+.car-arrow{position:absolute;top:50%;transform:translateY(-50%);z-index:6;width:46px;height:46px;
+  border-radius:50%;border:1px solid var(--border);background:var(--panel-2);color:var(--text);
+  font-size:1.6rem;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;
+  box-shadow:0 6px 20px rgba(0,0,0,.35);transition:.2s}
+.car-arrow:hover{border-color:var(--green-dim);color:var(--green)}
+.car-arrow.off{opacity:.3;pointer-events:none}
+.car-arrow.prev{left:-14px}
+.car-arrow.next{right:-14px}
+.car-dots{display:flex;gap:7px;justify-content:center;margin-top:2px}
+.car-dots i{width:7px;height:7px;border-radius:50%;background:var(--border);transition:.25s;cursor:pointer}
+.car-dots i.on{background:var(--green);transform:scale(1.25)}
+
+/* slides — backgrounds */
+.bg-slide{flex:0 0 calc((100% - 36px)/3);scroll-snap-align:start;text-align:center}
+.bg-slide figure{position:relative;border-radius:16px;overflow:hidden;border:1px solid var(--border);
+  aspect-ratio:4/5;background:var(--panel);box-shadow:0 18px 44px rgba(0,0,0,.45);
+  transition:transform .3s ease,box-shadow .3s ease}
+.bg-slide:hover figure{transform:translateY(-4px);box-shadow:0 24px 54px rgba(19,192,141,.22)}
+.bg-slide img{width:100%;height:100%;object-fit:cover;display:block}
+.bg-slide figcaption{display:flex;align-items:center;justify-content:center;gap:8px;margin-top:12px;
+  color:var(--text);font-weight:600;font-size:.95rem}
+.bg-slide .dot{width:12px;height:12px;border-radius:50%;border:1px solid rgba(255,255,255,.28);flex:none}
+.bg-slide .hint{color:var(--muted);font-weight:400;font-size:.84rem}
+
+/* slides — résumés */
+.res-slide{flex:0 0 calc((100% - 36px)/3);scroll-snap-align:start;background:var(--panel);
+  border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;
+  transition:transform .2s,border-color .2s,box-shadow .2s}
+.res-slide:hover{transform:translateY(-4px);border-color:var(--green-dim);box-shadow:0 12px 34px rgba(19,192,141,.14)}
+.res-slide .sheet{padding:16px 16px 0;background:linear-gradient(180deg,rgba(255,255,255,.03),transparent)}
+.res-slide .sheet img{width:100%;display:block;border-radius:6px 6px 0 0;border:1px solid var(--border);border-bottom:0;
+  box-shadow:0 14px 30px rgba(0,0,0,.5)}
+.slide-cap{display:flex;align-items:center;gap:10px;padding:13px 16px}
+.slide-cap .nm{font-weight:700;font-size:.95rem}
+.slide-cap .chips{display:flex;gap:5px;margin-left:auto}
+.slide-cap .chips i{width:13px;height:13px;border-radius:50%;border:1px solid rgba(255,255,255,.18)}
+
+/* slides — websites (live iframes in a browser frame) */
+.site-slide{flex:0 0 calc((100% - 36px)/3);scroll-snap-align:start;background:var(--panel);
+  border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;
+  transition:transform .2s,border-color .2s,box-shadow .2s}
+.site-slide:hover{transform:translateY(-4px);border-color:var(--green-dim);box-shadow:0 12px 34px rgba(19,192,141,.14)}
+.chromebar{display:flex;align-items:center;gap:6px;padding:10px 13px;border-bottom:1px solid var(--border);background:var(--panel-2)}
+.chromebar i{width:9px;height:9px;border-radius:50%;background:var(--border);display:block}
+.chromebar .url{margin-left:8px;font-family:var(--mono);font-size:.72rem;color:var(--muted);
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.viewport{position:relative;aspect-ratio:16/11;overflow:hidden;background:#fff}
+.viewport iframe{position:absolute;top:0;left:0;border:0;transform-origin:top left;pointer-events:none}
+.viewport a.cover{position:absolute;inset:0;z-index:2}
+.site-slide .slide-cap{border-top:1px solid var(--border)}
+.live-chip{background:var(--green-soft);color:var(--green);font-size:.7rem;font-weight:800;
+  letter-spacing:.05em;text-transform:uppercase;padding:3px 9px;border-radius:999px}
+
+/* closing CTA */
+.show-cta{margin:72px auto 0;text-align:center;background:var(--panel);border:1px solid var(--border);
+  border-radius:var(--radius);padding:44px 28px;max-width:760px;position:relative;overflow:hidden}
+.show-cta h2{margin-bottom:10px}
+.show-cta p{color:var(--muted);margin-bottom:22px}
+
+@media (max-width:900px){
+  .bg-slide,.res-slide,.site-slide{flex-basis:calc((100% - 18px)/2)}
 }
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{
-  background:var(--navy); color:var(--paper); font-family:var(--sans);
-  -webkit-font-smoothing:antialiased; overflow-x:hidden; line-height:1.5;
+@media (max-width:640px){
+  .bg-slide,.res-slide,.site-slide{flex-basis:86%}
+  .car-arrow.prev{left:2px}.car-arrow.next{right:2px}
+  .show-hero{padding:64px 0 20px}
 }
-/* blueprint grid + atmospheric glow */
-body::before{
-  content:""; position:fixed; inset:0; z-index:0; pointer-events:none;
-  background-image:
-    linear-gradient(var(--line) 1px,transparent 1px),
-    linear-gradient(90deg,var(--line) 1px,transparent 1px);
-  background-size:64px 64px; mask-image:radial-gradient(circle at 50% 0,#000 40%,transparent 85%);
-  opacity:.6;
-}
-body::after{
-  content:""; position:fixed; inset:0; z-index:0; pointer-events:none;
-  background:
-    radial-gradient(60vw 40vw at 12% -5%, rgba(198,75,79,.16), transparent 60%),
-    radial-gradient(50vw 40vw at 92% 8%, rgba(111,195,189,.13), transparent 60%);
-}
-.wrap{position:relative; z-index:1; max-width:1240px; margin:0 auto; padding:0 28px}
-
-/* ---- top bar ---- */
-.bar{display:flex; align-items:center; justify-content:space-between; padding:22px 0 0}
-.brand{display:flex; align-items:center; gap:11px; text-decoration:none; color:var(--paper)}
-.brand img{height:30px; width:auto; display:block}
-.brand b{font-family:var(--mono); font-weight:500; letter-spacing:.18em; font-size:12px; text-transform:uppercase; opacity:.85}
-.bar .home{font-family:var(--mono); font-size:11.5px; letter-spacing:.14em; text-transform:uppercase; color:var(--muted); text-decoration:none; border:1px solid var(--line-2); padding:9px 15px; border-radius:999px; transition:.25s}
-.bar .home:hover{color:var(--paper); border-color:var(--teal)}
-
-/* ---- hero ---- */
-.hero{padding:74px 0 30px; position:relative}
-.eyebrow{font-family:var(--mono); font-size:12px; letter-spacing:.34em; text-transform:uppercase; color:var(--teal); display:flex; align-items:center; gap:14px}
-.eyebrow::before{content:""; width:38px; height:1px; background:var(--teal); display:inline-block}
-.hero h1{font-family:var(--serif); font-weight:400; font-size:clamp(44px,8vw,108px); line-height:.95; letter-spacing:-.02em; margin:26px 0 0}
-.hero h1 em{font-style:italic; color:var(--maroon)}
-.hero p{max-width:560px; margin:26px 0 0; color:#c5d2df; font-size:clamp(15px,1.7vw,18px)}
-.hero .meta{display:flex; gap:30px; margin-top:34px; flex-wrap:wrap}
-.hero .meta div{font-family:var(--mono); font-size:11.5px; letter-spacing:.1em; color:var(--muted); text-transform:uppercase}
-.hero .meta b{display:block; font-family:var(--serif); font-size:30px; color:var(--paper); letter-spacing:0; margin-top:6px; text-transform:none}
-.tick{position:absolute; width:16px; height:16px; border:1px solid var(--line-2)}
-.tick.tl{top:54px; left:-6px; border-right:0; border-bottom:0}
-.tick.tr{top:54px; right:-6px; border-left:0; border-bottom:0}
-
-/* ---- section scaffold ---- */
-section{padding:64px 0 8px; position:relative}
-.shead{display:flex; align-items:baseline; gap:20px; border-top:1px solid var(--line-2); padding-top:24px; margin-bottom:40px}
-.shead .no{font-family:var(--mono); font-size:13px; color:var(--maroon); letter-spacing:.1em}
-.shead h2{font-family:var(--serif); font-weight:400; font-size:clamp(26px,4vw,44px); letter-spacing:-.01em; line-height:1}
-.shead .sub{margin-left:auto; font-family:var(--mono); font-size:11.5px; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); max-width:280px; text-align:right}
-
-/* ---- backgrounds (contact sheet) ---- */
-.swatches{display:grid; grid-template-columns:repeat(7,1fr); gap:14px}
-@media(max-width:1080px){.swatches{grid-template-columns:repeat(4,1fr)}}
-@media(max-width:620px){.swatches{grid-template-columns:repeat(2,1fr)}}
-.sw{position:relative}
-.sw figure{aspect-ratio:4/5; border-radius:10px; overflow:hidden; border:1px solid var(--line-2); position:relative; background:var(--chip,#1a2a3c)}
-.sw figure img{width:100%; height:100%; object-fit:cover; display:block; transition:transform .6s cubic-bezier(.2,.7,.2,1)}
-.sw:hover figure img{transform:scale(1.05)}
-.sw figure::after{content:""; position:absolute; inset:0; box-shadow:inset 0 0 0 1px rgba(255,255,255,.05); border-radius:10px; transition:.3s}
-.sw:hover figure::after{box-shadow:inset 0 0 0 2px var(--teal)}
-.sw .pending{position:absolute; inset:0; display:grid; place-items:center; font-family:var(--mono); font-size:10px; letter-spacing:.1em; color:rgba(255,255,255,.6); text-transform:uppercase}
-.sw figcaption{display:flex; align-items:center; gap:8px; margin-top:11px; font-family:var(--mono); font-size:11px; letter-spacing:.06em; color:#c5d2df; text-transform:capitalize}
-.dot{width:11px; height:11px; border-radius:50%; border:1px solid rgba(255,255,255,.25); flex:none}
-
-/* ---- résumé templates ---- */
-.grid3{display:grid; grid-template-columns:repeat(3,1fr); gap:22px}
-@media(max-width:900px){.grid3{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:560px){.grid3{grid-template-columns:1fr}}
-.card{background:linear-gradient(180deg,#14253a,#0e1c2e); border:1px solid var(--line-2); border-radius:14px; overflow:hidden; transition:transform .4s cubic-bezier(.2,.7,.2,1),border-color .3s,box-shadow .4s}
-.card:hover{transform:translateY(-6px); border-color:var(--accent,var(--teal)); box-shadow:0 24px 50px -24px rgba(0,0,0,.7)}
-.card .doc{padding:20px 20px 0; background:radial-gradient(120% 80% at 50% 0,rgba(255,255,255,.05),transparent)}
-.card .doc img{width:100%; display:block; border-radius:6px 6px 0 0; box-shadow:0 18px 36px -18px rgba(0,0,0,.8); transition:transform .5s}
-.card:hover .doc img{transform:translateY(-4px)}
-.cap{display:flex; align-items:center; gap:13px; padding:16px 20px 18px}
-.cap .nm{font-family:var(--serif); font-size:18px}
-.cap .chips{display:flex; gap:5px; margin-left:auto}
-.cap .chips span{width:15px; height:15px; border-radius:50%; border:1px solid rgba(255,255,255,.18)}
-.cap .tag{font-family:var(--mono); font-size:9.5px; letter-spacing:.08em; text-transform:uppercase; color:var(--muted)}
-
-/* ---- website templates (browser frames, live iframes) ---- */
-.frame{background:linear-gradient(180deg,#13243a,#0d1a2b); border:1px solid var(--line-2); border-radius:14px; overflow:hidden; transition:transform .4s cubic-bezier(.2,.7,.2,1),border-color .3s,box-shadow .4s}
-.frame:hover{transform:translateY(-6px); border-color:var(--accent,var(--teal)); box-shadow:0 24px 50px -24px rgba(0,0,0,.7)}
-.chrome{display:flex; align-items:center; gap:7px; padding:11px 14px; border-bottom:1px solid var(--line)}
-.chrome i{width:10px; height:10px; border-radius:50%; background:#33485f; display:block}
-.chrome .url{margin-left:10px; font-family:var(--mono); font-size:10.5px; color:var(--muted); white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
-.viewport{position:relative; aspect-ratio:16/11; overflow:hidden; background:#fff}
-.viewport iframe{position:absolute; top:0; left:0; border:0; transform-origin:top left; pointer-events:none}
-.viewport a.cover{position:absolute; inset:0; z-index:2}
-.frame .cap{border-top:1px solid var(--line)}
-
-/* ---- CTA ---- */
-.cta{margin:80px 0 40px; border:1px solid var(--line-2); border-radius:20px; padding:clamp(34px,6vw,68px); text-align:center; position:relative; overflow:hidden; background:linear-gradient(180deg,#112338,#0c1828)}
-.cta h3{font-family:var(--serif); font-weight:400; font-size:clamp(30px,5vw,56px); line-height:1; letter-spacing:-.01em}
-.cta h3 em{font-style:italic;color:var(--teal)}
-.cta p{color:#c5d2df; margin:18px auto 0; max-width:440px}
-.cta a.go{display:inline-flex; align-items:center; gap:10px; margin-top:30px; background:var(--maroon-deep); color:#fff; text-decoration:none; font-family:var(--mono); font-size:13px; letter-spacing:.08em; text-transform:uppercase; padding:16px 30px; border-radius:999px; transition:.3s}
-.cta a.go:hover{background:var(--maroon); transform:translateY(-2px)}
-footer{padding:40px 0 60px; border-top:1px solid var(--line); display:flex; justify-content:space-between; flex-wrap:wrap; gap:14px; font-family:var(--mono); font-size:11px; letter-spacing:.08em; color:var(--muted); text-transform:uppercase}
-footer b{color:var(--paper); font-family:var(--serif); font-size:15px; letter-spacing:0; text-transform:none}
-
-/* reveal */
-.rv{opacity:0; transform:translateY(26px); transition:opacity .8s ease,transform .8s cubic-bezier(.2,.7,.2,1)}
-.rv.in{opacity:1; transform:none}
 </style>
 </head>
 <body>
-<div class="wrap">
 
-  <div class="bar">
-    <a class="brand" href="/"><img src="../assets/logo_mark.png" alt="OfferReady"><b>OfferReady</b></a>
-    <a class="home" href="/">← Back to site</a>
-  </div>
-
-  <header class="hero">
-    <span class="tick tl"></span><span class="tick tr"></span>
-    <div class="eyebrow">Style Index · Built on real work</div>
-    <h1>Every look,<br>before you <em>commit.</em></h1>
-    <p>This is the full menu of OfferReady customizations — every studio background, every résumé template, every website design — shown on one real client's kit. What you pick is what you get.</p>
+  <header class="nav" id="nav">
+    <div class="container nav-inner">
+      <a href="/" class="brand"><img src="../assets/logo_dark.png" alt="OfferReady" /></a>
+      <nav class="nav-links">
+        <a href="/#proof">The proof</a>
+        <a href="/#how">How it works</a>
+        <a href="/#pricing">Pricing</a>
+        <a href="/#faq">FAQ</a>
+        <a href="/#pricing" class="nav-cta">Get started</a>
+      </nav>
+    </div>
   </header>
 
-  <!-- 01 BACKGROUNDS -->
-  <section>
-    <div class="shead rv"><span class="no">01</span><h2>Studio Backgrounds</h2><span class="sub">One face, six backdrops · pick one, add more for +$3</span></div>
-    <div class="swatches" id="bgs"></div>
+  <!-- HERO -->
+  <section class="hero show-hero">
+    <div class="aurora a1"></div><div class="aurora a2"></div><div class="aurora a3"></div>
+    <div class="container hero-inner">
+      <p class="eyebrow reveal">The showroom</p>
+      <h1 class="reveal">Pick your look.<br/><span class="grad-text">I'll build it.</span></h1>
+      <p class="lede reveal">Everything on this page is my own kit — my photos, my résumé, my website.
+      Flip through the looks below. <strong>Whatever you pick is exactly what you get.</strong></p>
+    </div>
   </section>
 
-  <!-- 02 RÉSUMÉS -->
-  <section>
-    <div class="shead rv"><span class="no">02</span><h2>Résumé Templates</h2><span class="sub">ATS-clean + designed · one theme, applied everywhere</span></div>
-    <div class="grid3" id="resumes"></div>
+  <!-- BACKGROUNDS -->
+  <section class="show">
+    <div class="container">
+      <div class="show-head reveal"><h2>First, your backdrop</h2><span class="count" data-count="bgs"></span></div>
+      <p class="show-sub reveal">Six studio colors, all shot from the same three photos I'd ask you for.
+      Your package covers one — <strong>each extra color is +$3 and gets its own full set of three poses.</strong></p>
+      <div class="car reveal">
+        <button class="car-arrow prev" aria-label="Previous">‹</button>
+        <div class="car-track" id="bgs"></div>
+        <button class="car-arrow next" aria-label="Next">›</button>
+      </div>
+      <div class="car-dots" data-for="bgs"></div>
+    </div>
   </section>
 
-  <!-- 03 WEBSITES -->
-  <section>
-    <div class="shead rv"><span class="no">03</span><h2>Portfolio Websites</h2><span class="sub">Live previews · Full Launch Kit · your own .offerreadynow.us</span></div>
-    <div class="grid3" id="sites"></div>
+  <!-- RÉSUMÉS -->
+  <section class="show">
+    <div class="container">
+      <div class="show-head reveal"><h2>Then, your résumé</h2><span class="count" data-count="resumes"></span></div>
+      <p class="show-sub reveal">One résumé, six color templates — this is mine, rebuilt in each one.
+      The colors change the look, <strong>never the ATS parsing.</strong> You also get a plain version built purely for the bots.</p>
+      <div class="car reveal">
+        <button class="car-arrow prev" aria-label="Previous">‹</button>
+        <div class="car-track" id="resumes"></div>
+        <button class="car-arrow next" aria-label="Next">›</button>
+      </div>
+      <div class="car-dots" data-for="resumes"></div>
+    </div>
   </section>
 
-  <div class="cta rv">
-    <h3>Your turn to <em>stand out.</em></h3>
-    <p>Pick your look, upload three photos, and we build the whole kit — headshots, résumé, LinkedIn, and site.</p>
-    <a class="go" href="/">Start your kit →</a>
-  </div>
+  <!-- WEBSITES -->
+  <section class="show">
+    <div class="container">
+      <div class="show-head reveal"><h2>And your website</h2><span class="count" data-count="sites"></span></div>
+      <p class="show-sub reveal">These aren't screenshots — each one is my actual portfolio site running live in that template.
+      <strong>Click any of them to open it full-size.</strong> Comes with the Full Launch Kit, at your own web address.</p>
+      <div class="car reveal">
+        <button class="car-arrow prev" aria-label="Previous">‹</button>
+        <div class="car-track" id="sites"></div>
+        <button class="car-arrow next" aria-label="Next">›</button>
+      </div>
+      <div class="car-dots" data-for="sites"></div>
+    </div>
+  </section>
 
-  <footer>
-    <span>OfferReady · Tempe, AZ</span>
-    <b>Land the interview.</b>
-    <span>offerreadynow.us</span>
+  <!-- CTA -->
+  <section class="section">
+    <div class="container">
+      <div class="show-cta reveal">
+        <h2>Found the one?</h2>
+        <p>Tell me the look when you order — backdrop, template, all of it — and it's yours in 3–5 business days.</p>
+        <a href="/#pricing" class="btn btn-primary btn-lg">Start your kit</a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container foot-inner">
+      <span class="brand"><img src="../assets/logo_dark.png" alt="OfferReady" /></span>
+      <span class="foot-links">
+        <a href="mailto:cole-c@offerreadynow.us">cole-c@offerreadynow.us</a>
+        <span>·</span>
+        <a href="/terms.html">Terms</a>
+        <span>·</span>
+        <a href="/privacy.html">Privacy</a>
+      </span>
+      <span class="foot-note">© <span id="year"></span> OfferReady · Tempe, AZ</span>
+    </div>
   </footer>
 
-</div>
-
 <script>
+document.getElementById('year').textContent = new Date().getFullYear();
+
 const BGS = [
   ["navy","Navy","#0D1B2A"],["soft-blue","Soft Blue","#9DB4C8"],["lavender","Lavender","#D3CCE6"],
   ["soft-pink","Soft Pink","#ECD4D9"],["white","White","#FFFFFF"],["light-gray","Light Gray","#E9ECEF"]
@@ -186,51 +207,73 @@ const PRESETS = [
   ["monochrome","Monochrome",["#111111","#3A3A3A","#8A8A8A"]]
 ];
 
-// backgrounds — graceful: show the colour chip until/if the headshot lands
 document.getElementById('bgs').innerHTML = BGS.map(([k,label,hex],i)=>`
-  <div class="sw rv" style="--chip:${hex};transition-delay:${i*55}ms">
-    <figure>
-      <div class="pending">developing…</div>
-      <img alt="${label} background headshot" src="assets/bg/${k}.jpg" loading="lazy"
-           onload="this.previousElementSibling.remove()" onerror="this.remove()">
-    </figure>
-    <figcaption><span class="dot" style="background:${hex}"></span>${label}</figcaption>
+  <div class="bg-slide">
+    <figure><img alt="${label} backdrop" src="assets/bg/${k}.jpg" loading="${i<3?'eager':'lazy'}"></figure>
+    <figcaption><span class="dot" style="background:${hex}"></span>${label}
+      ${i===0?'<span class="hint">(most picked)</span>':''}</figcaption>
   </div>`).join('');
 
-// résumés
 document.getElementById('resumes').innerHTML = PRESETS.map(([k,label,pal],i)=>`
-  <div class="card rv" style="--accent:${pal[1]};transition-delay:${i*60}ms">
-    <div class="doc"><img alt="${label} résumé" src="assets/resume/${k}.png" loading="lazy"></div>
-    <div class="cap"><span class="nm">${label}</span>
-      <span class="tag">Template</span>
-      <span class="chips">${pal.map(c=>`<span style="background:${c}"></span>`).join('')}</span>
-    </div>
+  <div class="res-slide">
+    <div class="sheet"><img alt="${label} résumé template" src="assets/resume/${k}.png" loading="${i<3?'eager':'lazy'}"></div>
+    <div class="slide-cap"><span class="nm">${label}</span>
+      <span class="chips">${pal.map(c=>`<i style="background:${c}"></i>`).join('')}</span></div>
   </div>`).join('');
 
-// websites — scaled live iframes inside browser frames
 document.getElementById('sites').innerHTML = PRESETS.map(([k,label,pal],i)=>`
-  <div class="frame rv" style="--accent:${pal[1]};transition-delay:${i*60}ms">
-    <div class="chrome"><i></i><i></i><i></i><span class="url">cole-campbell.offerreadynow.us</span></div>
-    <div class="viewport"><iframe scrolling="no" loading="lazy" src="assets/site/${k}/index.html" title="${label} website"></iframe>
-      <a class="cover" href="assets/site/${k}/index.html" target="_blank" aria-label="Open ${label} website"></a></div>
-    <div class="cap"><span class="nm">${label}</span>
-      <span class="tag">Website</span>
-      <span class="chips">${pal.map(c=>`<span style="background:${c}"></span>`).join('')}</span>
-    </div>
+  <div class="site-slide">
+    <div class="chromebar"><i></i><i></i><i></i><span class="url">your-name.offerreadynow.us</span></div>
+    <div class="viewport"><iframe scrolling="no" loading="lazy" src="assets/site/${k}/index.html" title="${label} site"></iframe>
+      <a class="cover" href="assets/site/${k}/index.html" target="_blank" aria-label="Open the ${label} site"></a></div>
+    <div class="slide-cap"><span class="nm">${label}</span><span class="live-chip">Live</span>
+      <span class="chips">${pal.map(c=>`<i style="background:${c}"></i>`).join('')}</span></div>
   </div>`).join('');
 
-// scale each site iframe to fit its viewport (design width 1280)
+// counters ("6 looks")
+document.querySelectorAll('.count').forEach(c=>{
+  const n = document.getElementById(c.dataset.count).children.length;
+  c.textContent = n + ' looks';
+});
+
+// carousel wiring: arrows page by one slide; dots track scroll position
+document.querySelectorAll('.car').forEach(car=>{
+  const track = car.querySelector('.car-track');
+  const prev = car.querySelector('.prev'), next = car.querySelector('.next');
+  const dots = document.querySelector(`.car-dots[data-for="${track.id}"]`);
+  const slides = [...track.children];
+  if (dots) dots.innerHTML = slides.map((_,i)=>`<i data-i="${i}"></i>`).join('');
+  const step = () => slides.length>1 ? slides[1].offsetLeft - slides[0].offsetLeft : track.clientWidth;
+  prev.addEventListener('click',()=>track.scrollBy({left:-step()}));
+  next.addEventListener('click',()=>track.scrollBy({left:step()}));
+  if (dots) dots.querySelectorAll('i').forEach(d=>d.addEventListener('click',
+    ()=>track.scrollTo({left:d.dataset.i*step()})));
+  const sync=()=>{
+    const i = Math.round(track.scrollLeft/step());
+    const max = track.scrollWidth - track.clientWidth - 4;
+    prev.classList.toggle('off', track.scrollLeft<=4);
+    next.classList.toggle('off', track.scrollLeft>=max);
+    if (dots) dots.querySelectorAll('i').forEach((d,di)=>d.classList.toggle('on',di===i));
+  };
+  track.addEventListener('scroll',()=>requestAnimationFrame(sync));
+  addEventListener('resize',sync); setTimeout(sync,120);
+});
+
+// scale the live site iframes (designed at 1280w) into their viewports
 function fitFrames(){
   document.querySelectorAll('.viewport').forEach(v=>{
-    const f=v.querySelector('iframe'); const w=v.clientWidth; const s=w/1280;
-    f.style.width='1280px'; f.style.height=(v.clientHeight/s)+'px'; f.style.transform='scale('+s+')';
+    const f=v.querySelector('iframe'); if(!f) return;
+    const s=v.clientWidth/1280;
+    f.style.width='1280px'; f.style.height=(v.clientHeight/s)+'px'; f.style.transform=`scale(${s})`;
   });
 }
-window.addEventListener('load',fitFrames); window.addEventListener('resize',fitFrames); setTimeout(fitFrames,400);
+addEventListener('load',fitFrames); addEventListener('resize',fitFrames); setTimeout(fitFrames,400);
 
-// staggered reveal on scroll
+// same reveal-on-scroll + nav shadow as the landing
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
-document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+const nav=document.getElementById('nav');
+addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>8));
 </script>
 </body>
 </html>
