@@ -12,6 +12,7 @@
   <meta property="og:type" content="website" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:image" content="https://offerreadynow.us/assets/proof/og_card.png" />
+  <link rel="canonical" href="https://offerreadynow.us/" />
   <link rel="icon" type="image/png" href="assets/favicon.png" />
   <link rel="stylesheet" href="style.css" />
 </head>
@@ -116,7 +117,7 @@
             <li>Background of your choice</li>
             <li>Ready for LinkedIn, résumé, or Handshake</li>
           </ul>
-          <a href="https://buy.stripe.com/5kQfZhaCI4BLbZAaWE9Zm02" class="btn btn-tier" data-tier="headshot">Get a headshot</a>
+          <a href="https://buy.stripe.com/5kQfZhaCI4BLbZAaWE9Zm02" class="btn btn-tier" data-tier="headshot" data-goatcounter-click="buy-headshot">Get a headshot</a>
           <p class="addon">+$3 per extra background (up to 2)</p>
         </div>
 
@@ -130,7 +131,7 @@
             <li>Full LinkedIn overhaul — banner, headline, About, Featured</li>
             <li>Your design, everywhere: pick colors &amp; style once, every file matches</li>
           </ul>
-          <a href="https://buy.stripe.com/dRmaEXbGM2tD9Rse8Q9Zm03" class="btn btn-primary" data-tier="profile">Get the Profile</a>
+          <a href="https://buy.stripe.com/dRmaEXbGM2tD9Rse8Q9Zm03" class="btn btn-primary" data-tier="profile" data-goatcounter-click="buy-profile">Get the Profile</a>
           <p class="addon">Best value for a job search</p>
         </div>
 
@@ -142,7 +143,7 @@
             <li>Your own website — <strong>your-name.offerreadynow.us</strong>, renameable anytime</li>
             <li>A tailored LinkedIn announcement post</li>
           </ul>
-          <a href="https://buy.stripe.com/cNieVd6ms7NX0gSaWE9Zm00" class="btn btn-tier" data-tier="kit">Get the full kit</a>
+          <a href="https://buy.stripe.com/cNieVd6ms7NX0gSaWE9Zm00" class="btn btn-tier" data-tier="kit" data-goatcounter-click="buy-kit">Get the full kit</a>
           <p class="addon"><a href="https://cole-campbell.offerreadynow.us/" target="_blank" rel="noopener">See a real Launch Kit site →</a></p>
         </div>
 
@@ -153,7 +154,7 @@
           <h3>Group &amp; Greek rate — $5.99 / person</h3>
           <p>Headshots for your whole chapter, club, or org (15+ people). Everyone fills out the same 5-minute form with their own photos and style — no scheduling, no group shoot, no waiting on the photographer. <a href="/groups/">See how group orders work →</a></p>
         </div>
-        <a href="https://buy.stripe.com/8x2dR9h162tD4x89SA9Zm01" class="btn btn-primary" data-tier="group">Book a group</a>
+        <a href="https://buy.stripe.com/8x2dR9h162tD4x89SA9Zm01" class="btn btn-primary" data-tier="group" data-goatcounter-click="buy-group">Book a group</a>
       </div>
 
       <p class="rush-note reveal">Need it faster? Add <strong>Rush Delivery</strong> (1–3 business days, +$5) at checkout.</p>
@@ -277,11 +278,17 @@
       track.addEventListener('scroll', sync, { passive: true });
       addEventListener('resize', sync);
       sync();
-    }).catch(() => {});
+    }).catch(() => {
+      // reviews.json unreachable — still give visitors a path to the review archive
+      const nv = document.getElementById('nav-reviews');
+      nv.href = '/reviews/'; nv.style.display = '';
+    });
     const io = new IntersectionObserver(es => es.forEach(e => {
       if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
     }), {threshold: 0.12});
     document.querySelectorAll('.reveal').forEach(el => io.observe(el));
   </script>
+  <!-- privacy-friendly analytics (GoatCounter) — pageviews + data-goatcounter-click events -->
+  <script data-goatcounter="https://offerready.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
 </body>
 </html>
