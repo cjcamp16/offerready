@@ -204,6 +204,7 @@
 <script>
 document.getElementById('year').textContent = new Date().getFullYear();
 
+const ASSET_V = "1783975784";  // cache-buster — bumped automatically when gallery assets regenerate
 const BGS = [
   ["navy","Navy","#0D1B2A"],["soft-blue","Soft Blue","#9DB4C8"],["lavender","Lavender","#D3CCE6"],
   ["soft-pink","Soft Pink","#ECD4D9"],["white","White","#FFFFFF"],["light-gray","Light Gray","#E9ECEF"]
@@ -219,14 +220,14 @@ const PRESETS = [
 
 document.getElementById('bgs').innerHTML = BGS.map(([k,label,hex],i)=>`
   <div class="bg-slide">
-    <figure><img alt="${label} backdrop" src="assets/bg/${k}.jpg" loading="${i<3?'eager':'lazy'}"></figure>
+    <figure><img alt="${label} backdrop" src="assets/bg/${k}.jpg?v=${ASSET_V}" loading="${i<3?'eager':'lazy'}"></figure>
     <figcaption><span class="dot" style="background:${hex}"></span>${label}
       ${i===0?'<span class="hint">(most picked)</span>':''}</figcaption>
   </div>`).join('');
 
 document.getElementById('resumes').innerHTML = PRESETS.map(([k,label,pal],i)=>`
   <div class="res-slide">
-    <div class="sheet"><img alt="${label} résumé template" src="assets/resume/${k}.png" loading="${i<3?'eager':'lazy'}"></div>
+    <div class="sheet"><img alt="${label} résumé template" src="assets/resume/${k}.png?v=${ASSET_V}" loading="${i<3?'eager':'lazy'}"></div>
     <div class="slide-cap"><span class="nm">${label}</span>
       <span class="chips">${pal.map(c=>`<i style="background:${c}"></i>`).join('')}</span></div>
   </div>`).join('');
@@ -234,8 +235,8 @@ document.getElementById('resumes').innerHTML = PRESETS.map(([k,label,pal],i)=>`
 document.getElementById('sites').innerHTML = PRESETS.map(([k,label,pal],i)=>`
   <div class="site-slide">
     <div class="chromebar"><i></i><i></i><i></i><span class="url">your-name.offerreadynow.us</span></div>
-    <div class="viewport"><iframe scrolling="no" loading="lazy" src="assets/site/${k}/index.html" title="${label} site"></iframe>
-      <a class="cover" href="assets/site/${k}/index.html" target="_blank" aria-label="Open the ${label} site"></a></div>
+    <div class="viewport"><iframe scrolling="no" loading="lazy" src="assets/site/${k}/index.html?v=${ASSET_V}" title="${label} site"></iframe>
+      <a class="cover" href="assets/site/${k}/index.html?v=${ASSET_V}" target="_blank" aria-label="Open the ${label} site"></a></div>
     <div class="slide-cap"><span class="nm">${label}</span><span class="live-chip">Live</span>
       <span class="chips">${pal.map(c=>`<i style="background:${c}"></i>`).join('')}</span></div>
   </div>`).join('');
