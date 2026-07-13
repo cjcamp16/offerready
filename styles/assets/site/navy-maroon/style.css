@@ -52,6 +52,7 @@ section h2{font-size:1.7rem;letter-spacing:-.5px;margin-bottom:22px;padding-bott
   transition:transform .18s,box-shadow .18s}
 .card:hover{transform:translateY(-4px);box-shadow:0 16px 40px color-mix(in srgb,var(--primary) 14%,transparent)}
 .card h3{font-size:1.15rem;margin-bottom:10px;letter-spacing:-.3px}
+.card-date{color:var(--muted);font-size:.78rem;font-weight:400;white-space:nowrap;margin-left:6px}
 .card-blurb{color:var(--muted);font-size:.95rem;margin:10px 0}
 .card-points{list-style:none;margin:8px 0 14px}
 .card-points li{position:relative;padding:4px 0 4px 16px;color:var(--text);font-size:.9rem}
